@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>4G远程蜂鸣器</title>
+    <style>
+        button{padding:20px 40px;font-size:20px;margin:10px}
+    </style>
+</head>
+<body>
+    <h1>远程控制</h1>
+    <button onclick="send('once')">✅ 点动响</button>
+    <button onclick="send('long')">🔴 长鸣</button>
+    <button onclick="send('off')">⏹️ 停止</button>
+
+    <script>
+        // 这里改成你的 CF Workers 地址
+        const url = "https://xxx.workers.dev";
+        
+        async function send(cmd) {
+            await fetch(url + "?cmd=" + cmd);
+            alert("已发送：" + cmd);
+        }
+    </script>
+</body>
+</html>
